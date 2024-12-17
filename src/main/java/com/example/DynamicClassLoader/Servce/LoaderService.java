@@ -11,17 +11,15 @@ public class LoaderService {
 
 
 
-    public void loadClass(final String path, final String className) throws IOException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public boolean loadClass(final String path, final String className) throws IOException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
         Class<?> clazz = DynamicClassLoaderUtil.loadClass(path, className);
 
         Object instance = clazz.getDeclaredConstructor().newInstance();
 
-
         System.out.println( clazz.getMethod("whoAmI").invoke(instance) );
 
-
-
+        return true;
     }
 
 

@@ -24,12 +24,14 @@ public class ClassLoadController {
 
     @GetMapping("/loadClass/{className}")
     public ResponseEntity loadClass(@PathVariable String className) throws IOException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-
+        String outMsg = HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase();
         System.out.println("===============> " + classPath+className);
 
-        loaderService.loadClass(classPath, className);
+        if(loaderService.loadClass(classPath, className) ){
+            outMsg = HttpStatus.CREATED.getReasonPhrase();
+        }
 
-        return new ResponseEntity<String>(classPath+className, HttpStatus.OK);
+        return new ResponseEntity<String>(outMsg, HttpStatus.OK);
     }
 
 }
