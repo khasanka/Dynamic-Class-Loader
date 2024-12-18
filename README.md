@@ -36,9 +36,9 @@ This project demonstrates how to load external class into your main application 
 
 ## Program Specification
 
-- **Input**: Send POST request to API endpoint.
-- **Process**: Save received data into H2 and MongoDB.
-- **Output**: Return saved data to same POST request.
+- **Input**: Add java class file into specific folder.
+- **Process**: Trigger API endpoint by providing class name as path variable.
+- **Output**: In newly added class, method will be invoke and SOP will be print on the terminal.
 
 ## Input
 
@@ -57,13 +57,17 @@ This project demonstrates how to load external class into your main application 
 
 ## Output
 
+- You can see the created message in Postman after successfully invoking the method, as shown in the image above.
+- Bellow message on the terminal.
+
+![Teminal](img/terminal.png)
 
 ## Setup Instructions
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/khasanka/MongoH2Together.git
-   cd MongoH2Together
+   git clone https://github.com/khasanka/Dynamic-Class-Loader.git
+   cd DynamicClassLoader
    ```
    
 2. **Build the Project**:
